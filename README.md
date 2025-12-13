@@ -1,3 +1,24 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [🔗 Link](#-link)
+    - [](#)
+      - [Hands free auto-install LSPs Formatters and Linters for Neovim](#hands-free-auto-install-lsps-formatters-and-linters-for-neovim)
+    - [](#-1)
+  - [Motivation](#motivation)
+  - [Requirements](#requirements)
+      - [Dependencies:](#dependencies)
+    - [](#-2)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Configuration](#configuration)
+    - [Default Config](#default-config)
+    - [Specify Preferences](#specify-preferences)
+    - [](#-3)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <h1 align="center">🔗 Link</h1>
 
 <div align="center">
@@ -39,16 +60,43 @@ This is a simple plugin aimed at people that can't be bothered finding individua
 
 Example using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
-{ 'harry-wilkos/link.nvim' }
+{ 'harry-wilkos/link.nvim',
+    dependencies = {
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        'stevearc/conform.nvim',
+        'zknx/mason-conform.nvim',
+        'mfussenegger/nvim-lint',
+        'rshkarin/mason-nvim-lint',
+    }
+}
 ```
 
 Example using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 ```lua
-use { 'harry-wilkos/link.nvim' }
+use { 'harry-wilkos/link.nvim',
+    requires = {
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        'stevearc/conform.nvim',
+        'zknx/mason-conform.nvim',
+        'mfussenegger/nvim-lint',
+        'rshkarin/mason-nvim-lint',
+    }
+}
 ```
 
 Example using [vim-plug](https://github.com/junegunn/vim-plug):
 ```vim
+Plug 'mason-org/mason.nvim',
+Plug 'mason-org/mason-lspconfig.nvim',
+Plug 'neovim/nvim-lspconfig',
+Plug 'stevearc/conform.nvim',
+Plug 'zknx/mason-conform.nvim',
+Plug 'mfussenegger/nvim-lint',
+Plug 'rshkarin/mason-nvim-lint',
 Plug 'harry-wilkos/link.nvim'
 ```
 
