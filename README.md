@@ -27,7 +27,7 @@ This is a simple plugin aimed at people that can't be bothered finding individua
 + [Mason-LSPConfig](https://github.com/mason-org/mason-lspconfig.nvim)
 + [Nvim-LSPConfig](https://github.com/neovim/nvim-lspconfig)
 + [Conform](https://github.com/stevearc/conform.nvim)
-+ [Mason-Conform](https://github.com/zapling/mason-conform.nvim)
++ [Mason-Conform](https://github.com/zknx/mason-conform.nvim)
 + [Nvim-Lint](https://github.com/mfussenegger/nvim-lint)
 + [Mason-Nvim-Lint](https://github.com/rshkarin/mason-nvim-lint)
 ###
