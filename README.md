@@ -1,24 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [🔗 Link](#-link)
-    - [](#)
-      - [Hands free auto-install LSPs Formatters and Linters for Neovim](#hands-free-auto-install-lsps-formatters-and-linters-for-neovim)
-    - [](#-1)
-  - [Motivation](#motivation)
-  - [Requirements](#requirements)
-      - [Dependencies:](#dependencies)
-    - [](#-2)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Configuration](#configuration)
-    - [Default Config](#default-config)
-    - [Specify Preferences](#specify-preferences)
-    - [](#-3)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h1 align="center">🔗 Link</h1>
 
 <div align="center">
