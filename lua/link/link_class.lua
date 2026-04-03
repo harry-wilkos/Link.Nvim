@@ -310,7 +310,7 @@ function link:install()
             lint.linters_by_ft[self.file_type] = self.linters
             
             require("mason-nvim-lint").setup({
-                automatic_installation = true,
+                automatic_installation = false,
             })
 
             if package.loaded["lint"] then
