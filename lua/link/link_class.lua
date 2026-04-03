@@ -254,8 +254,6 @@ function link:process_queue(full_list, limit, convert_map, callback)
 
     local function next_tool()
         if active_count >= limit or index > #full_list then
-            -- ISSUE 1 FIX: We no longer add skipped tools to `to_remove`. 
-            -- This stops `stylua` from uninstalling just because the limit was reached.
             callback(successful, to_remove)
             return
         end
@@ -278,7 +276,6 @@ function link:process_queue(full_list, limit, convert_map, callback)
                     active_count = active_count + 1
                     table.insert(successful, tool_name)
                 else
-                    -- We still keep this! We DO want to remove completely broken packages.
                     table.insert(to_remove, mason_name)
                     vim.notify("Link.nvim: Failed to install " .. mason_name .. ". Falling back...", vim.log.levels.WARN)
                 end
@@ -316,7 +313,6 @@ function link:install()
                 automatic_installation = true,
             })
 
-            -- ISSUE 2 FIX: Trigger the linter dynamically right after the async queue finishes!
             if package.loaded["lint"] then
                 vim.schedule(function()
                     require("lint").try_lint()
