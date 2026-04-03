@@ -313,11 +313,11 @@ function link:install()
                 automatic_installation = false,
             })
 
-            if package.loaded["lint"] then
-                vim.schedule(function()
-                    require("lint").try_lint()
-                end)
-            end
+            -- if package.loaded["lint"] then
+            --     vim.schedule(function()
+            --         require("lint").try_lint()
+            --     end)
+            -- end
 
             if self.removed and self.opts["clean"] then
                 vim.defer_fn(function()
