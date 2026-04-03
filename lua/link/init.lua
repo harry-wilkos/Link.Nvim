@@ -8,7 +8,8 @@ function M.setup(opts)
         callback = function(args)
             local ft = vim.bo[args.buf].filetype
             local bt = vim.bo[args.buf].buftype
-            if bt == "" and ft ~= "" and not processed_fts[ft] then
+            local fname = vim.api.nvim_buf_get_name(args.buf)
+            if bt == "" and ft ~= "" and fname ~= "" and not processed_fts[ft] then
                 processed_fts[ft] = true
                 require("link.link_class")(opts)
             end
