@@ -254,6 +254,14 @@ function link:process_queue(full_list, limit, convert_map, callback)
 
     local function next_tool()
         if active_count >= limit or index > #full_list then
+            for i = index, #full_list do
+                local tool_name = full_list[i]
+                local mason_name = convert_map and convert_map[tool_name] or tool_name
+                if mason_name then
+                    table.insert(to_remove, mason_name)
+                end
+            end
+            
             callback(successful, to_remove)
             return
         end
@@ -263,6 +271,12 @@ function link:process_queue(full_list, limit, convert_map, callback)
         
         local mason_name = convert_map and convert_map[tool_name] or tool_name
         if not mason_name then return next_tool() end
+
+        if not self.mason_registry.has_package(mason_name) then
+            active_count = active_count + 1
+            table.insert(successful, tool_name)
+            return next_tool()
+        end
 
         local pkg = self.mason_registry.get_package(mason_name)
 
@@ -277,7 +291,7 @@ function link:process_queue(full_list, limit, convert_map, callback)
                     table.insert(successful, tool_name)
                 else
                     table.insert(to_remove, mason_name)
-                    vim.notify("Link.nvim: Failed to install " .. mason_name .. ". Falling back...", vim.log.levels.WARN)
+                    -- vim.notify("Link: Failed to install " .. mason_name .. ". Falling back...", vim.log.levels.WARN)
                 end
                 next_tool()
             end))
